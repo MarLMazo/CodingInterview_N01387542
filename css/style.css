@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@500&display=swap');
+html, body{
+    font-family: Raleway, Arial, Helvetica, sans-serif;
+    box-sizing: border-box;
+}
+
+*, *::before, *::after{
+    box-sizing: inherit;
+}
+
+.hidden{
+    position:absolute;
+    left:-100000px;
+}
+
+h1{
+    text-align: center;
+    text-transform: uppercase;
+}
+
+section.team{
+    height: 500px;
+    
+}
+
+#container_team{
+    background-color: rgba(136,136,136,0.1);
+    margin: auto;
+    padding: 2em;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    justify-content: center;
+    height: 100vh;
+    width: 80vw;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+#container_team.wrap_team{
+    flex-direction: column;
+    overflow-x: scroll;
+    align-content: initial;
+    justify-content: unset;
+}
+
+.inside_cont{
+    padding: 0.2em;
+    margin: 0.5em 0.8em;
+    height: 350px;
+    width: 200px !important;
+    border: 1px solid black;
+    box-shadow: 1px 1px 1px #000000;
+}
+
+.featured{
+    height: 10%;
+}
+.featured img{
+    height: 100%;
+    float: right;
+}
+
+.main_info{
+    padding: 0.5em;
+    background-color: transparent;
+    width: 100%;
+    height: 75%;
+   
+}
+
+.mem_image{
+    text-align: center;
+    height: 50%;
+    width: 100%;
+}
+.mem_image img{
+    border-radius: 50%;
+    height: 100%;
+}
+
+.mem_details{
+    width: 100%;
+    height: 50%;
+}
+
+.mem_name{
+    text-align: center;
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.mem_tags{
+    height: 15%;
+}
+
+.mem_tags{
+    padding: 0 0.3em;
+    display: flex;
+    flex-flow: row wrap;
+    align-content: flex-start;
+    margin: auto;
+}
+
+.tag{
+    padding: 0 1em;
+    margin: 0.2em;
+    text-align: center;
+    background-color: burlywood;
+}
