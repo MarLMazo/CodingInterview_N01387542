@@ -16,6 +16,8 @@ function getData(url, callBack){
 
 // Roles here is not yet implemented
 function getTeamMembers(data,roles = null){
+    //Future Implementation is to consider the width of the window
+    //This approach is still giving me some errors and doesn't update the value right away
     //maxValueWidth Determined the size of the browser and will take the maximum member container for the Team container
     // var w = window.innerWidth;
     // var maxValueWidth = 0;
@@ -33,7 +35,7 @@ function getTeamMembers(data,roles = null){
     var team_container = document.getElementById('container_team');
     var json = [];
     json = JSON.parse(data);
-     //https://stackoverflow.com/questions/33096959/how-to-count-json-object-in-javascript
+    //https://stackoverflow.com/questions/33096959/how-to-count-json-object-in-javascript
     //New learning as to get the lenght in a json file.
     //Object.keys will return an array so that length property can be use.
     //console.log(Object.keys(json).length);
@@ -52,24 +54,26 @@ function getTeamMembers(data,roles = null){
         
     // Loop thru all the contents
     for(let i = start_loop; i< list_members.length + start_loop; i++){
-        //Main Container
+        //Creating Main Container
         var inside_cont = document.createElement('div');
         inside_cont.className = 'inside_cont';
             
-        //Featured Container
+        //Creating Featured Container
         var featured = document.createElement('div');
         featured.className = 'featured';
         var featured_image = document.createElement('img');
+        //Member is Featured will get the value of 1, not featured will get 0
+        //If Featured, image will be shown
         if(parseInt(json[i].employeeisfeatured) === 1){
             featured_image.src = '../images/crown-emoji-by-google.png';
         }
         else{
             featured_image.src = '';
         }
-        // featured_image.alt= '';
+        featured_image.alt= '';
         featured.appendChild(featured_image);
 
-        //Main info Container
+        //Creating Main info Container
         var main_info = document.createElement('div');
         main_info.className = 'main_info';
         
@@ -98,7 +102,7 @@ function getTeamMembers(data,roles = null){
         main_info.appendChild(mem_image_cont);
         main_info.appendChild(mem_details);
         
-        //Tags Container
+        //Creating Tags Container
         var mem_tags = document.createElement('div');
         mem_tags.className = 'mem_tags';
 
@@ -111,13 +115,13 @@ function getTeamMembers(data,roles = null){
             mem_tags.appendChild(tag);
         }
   
-            //Appending all the Containers
-            inside_cont.appendChild(featured);
-            inside_cont.appendChild(main_info);
-            inside_cont.appendChild(mem_tags);
+        //Appending all the Containers
+        inside_cont.appendChild(featured);
+        inside_cont.appendChild(main_info);
+        inside_cont.appendChild(mem_tags);
 
-            console.log(inside_cont);
-            team_container.appendChild(inside_cont);
+        console.log(inside_cont);
+        team_container.appendChild(inside_cont);
           
     }
 }
@@ -129,6 +133,7 @@ function getRoles(data){
 }
 
 window.onload = function(){
+    //Getting the Data to the desired API, and getting the TEMplate on the getTeamMembers() Function
     getData("http://sandbox.bittsdevelopment.com/code1/fetchemployees.php", getTeamMembers);
 
 }
